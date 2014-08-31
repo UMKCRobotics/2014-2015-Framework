@@ -1,8 +1,8 @@
 #include <vector>
 #include "Cardinal.h"
 
-class WorldSensor{
+class MazeSolver{
 	public:
-		virtual vector<Cardinal> computeOpenings() = 0;
+		virtual Cardinal computeOpenings(vector<Cardinal> openings) = 0;
 };
 
