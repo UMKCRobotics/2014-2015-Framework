@@ -10,6 +10,6 @@ struct Configuration{
 
 class ConfigurationFactory{
 	public:
-		virtual Configuration* createConfiguration() = 0;
-		Configuration* constructBlankConfig();
+		static Configuration* createConfiguration();
+		static Configuration* constructBlankConfig();
 };
