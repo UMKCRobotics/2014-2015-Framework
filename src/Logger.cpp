@@ -2,8 +2,10 @@
 #include <iostream>
 #include <stdexcept>
 
+using std::endl;
+
 void Logger::log(string& message){
-	(*os) << message;
+	(*os) << message << endl;
 }
 
 void Logger::logMessage(string message)
