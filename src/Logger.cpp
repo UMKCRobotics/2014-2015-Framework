@@ -1,4 +1,5 @@
 #include "Logger.h"
+#include <iostream>
 #include <stdexcept>
 
 void Logger::log(string& message){
@@ -24,10 +25,11 @@ void Logger::setStream(ostream* out){
 	Logger::getInstance().p_setStream(out);	
 }
 
-bool Logger::checkStream(bool throwError){
+bool Logger::checkStream(bool setToCout){
+	
 	if(Logger::getInstance().os == NULL){
-		if(throwError) {
-			throw std::runtime_error("No stream set");
+		if(setToCout){
+			Logger::getInstance().setStream(&cout);
 		}
 		return false;
 	}

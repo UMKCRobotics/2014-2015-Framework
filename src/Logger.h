@@ -12,7 +12,7 @@ private:
 	void init();
 	void log(string& message);
 	void p_setStream(ostream* out);
-	bool checkStream(bool throwError=true);
+	bool checkStream(bool setToCout=true);
 public:
 	static Logger& getInstance(){
 		static Logger instance;
