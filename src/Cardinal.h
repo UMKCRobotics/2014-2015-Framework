@@ -9,6 +9,7 @@ enum Cardinal { NORTH,
 		SOUTH,
 		EAST,
 		WEST};
+/*
 string cardinalToString(Cardinal c){
 	switch(c){
 		case NORTH:
@@ -23,4 +24,5 @@ string cardinalToString(Cardinal c){
 	return "";
 	Logger::logError("Cardinal to string cast failed!");
 }
+*/
 #endif

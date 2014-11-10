@@ -2,21 +2,30 @@
 #include <iostream>
 #include <stdexcept>
 
-void Logger::log(string& message){
-	(*os) << message;
+using std::endl;
+
+void Logger::log(){
+	(*os) << ss.str();
+	ss.str(std::string());
 }
 
 void Logger::logMessage(string message)
 {
-	Logger::getInstance().checkStream();
-	Logger::getInstance().log(message);
+	Logger::applyToLoggerInstance([&message](Logger* instance){
+		instance->checkStream();
+		instance->ss << instance->messagePrefix << message << endl;
+		instance->log();
+		});
 }
 
 void Logger::logError(string error)
 {
-	error = "Error: " + error;
-	Logger::getInstance().checkStream();
-	Logger::getInstance().log(error);
+	Logger::applyToLoggerInstance([&error](Logger* instance){
+		instance->checkStream();
+		instance->ss << instance->errorPrefix << error << endl;
+		instance->log();
+		});
+
 }
 void Logger::p_setStream(ostream* out){
 	os = out;
@@ -54,5 +63,11 @@ void Logger::standardInit()
 	Logger::setStream(&std::cout);
 	Logger::setErrorPrefix("Error : ");
 	Logger::setMessagePrefix("Message : ");
+}
+template<typename Func>
+void Logger::applyToLoggerInstance(Func f)
+{
+	Logger* instance = &Logger::getInstance();
+	f(instance);
 }
 

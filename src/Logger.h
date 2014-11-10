@@ -4,6 +4,7 @@
 #include <ostream>
 #include <iostream>
 #include <string.h>
+#include <sstream>
 using namespace std;
 
 class Logger{
@@ -11,10 +12,17 @@ private:
 	ostream* os;
 	string errorPrefix;
 	string messagePrefix;
+	stringstream ss;
 	void init();
-	void log(string& message);
+	/*
+	 * Logs and clears what's current in the stringstream
+	 */
+	void log();
 	void p_setStream(ostream* out);
 	bool checkStream(bool setToCout=true);
+
+	template<typename Func>
+	static void applyToLoggerInstance(Func f);
 public:
 	static Logger& getInstance(){
 		static Logger instance;
