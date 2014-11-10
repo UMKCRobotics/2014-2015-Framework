@@ -35,3 +35,24 @@ bool Logger::checkStream(bool setToCout){
 	}
 	return true;
 }
+void Logger::init()
+{
+}
+
+void Logger::setErrorPrefix(string s)
+{
+	Logger::getInstance().errorPrefix = s;
+}
+
+void Logger::setMessagePrefix(string s)
+{
+	Logger::getInstance().messagePrefix = s;
+}
+
+void Logger::standardInit()
+{
+	Logger::setStream(&std::cout);
+	Logger::setErrorPrefix("Error : ");
+	Logger::setMessagePrefix("Message : ");
+}
+
