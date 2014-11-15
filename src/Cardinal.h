@@ -2,13 +2,14 @@
 #define CARDINAL_H
 
 #include <string>
+using std::string;
 
 enum Cardinal { NORTH,
 		SOUTH,
 		EAST,
 		WEST};
 string cardinalToString(Cardinal c){
-	swtich(c){
+	switch(c){
 		case NORTH:
 			return "NORTH";
 		case SOUTH:
