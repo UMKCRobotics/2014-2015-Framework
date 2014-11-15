@@ -1,6 +1,7 @@
+#include <string>
 #include "Cardinal.h"
 
-string cardinalToString(Cardinal c){
+std::string cardinalToString(Cardinal c){
 	switch(c){
 		case NORTH:
 			return "NORTH";
@@ -15,7 +16,7 @@ string cardinalToString(Cardinal c){
 	return "";
 }
 
-Cardinal stringToCardinal(string s){
+Cardinal stringToCardinal(std::string s){
 	//the person who wrote string comparison is a goofball
 	if(s.compare("NORTH") == 0) return NORTH;
 	if(s.compare("SOUTH") == 0) return SOUTH;
