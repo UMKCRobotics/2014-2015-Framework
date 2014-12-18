@@ -17,5 +17,5 @@ echo    "done"
 echo -n "serialib: "
 g++ -I include -c src/serialib.cpp -o ario.o
 ar rsc ./lib/libario.a ./ario.o
-rm .ario.o
+rm ./ario.o
 echo    "done"
