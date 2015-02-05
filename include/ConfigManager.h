@@ -9,11 +9,14 @@ struct Configuration{
 	int endNode;
 	int boardXDimension;
 	int boardYDimension;
+	int matchTime;
 };
 
 class ConfigurationFactory{
 	public:
-		static Configuration* createConfiguration();
+		static Configuration* createConfiguration(){
+			return ConfigurationFactory::constructBlankConfig();
+		}
 		static Configuration* constructBlankConfig();
 };
 #endif
